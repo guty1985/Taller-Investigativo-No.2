@@ -1,17 +1,17 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[76]:
 
 import numpy as np
 
 
-# In[2]:
+# In[77]:
 
 import matplotlib.pyplot as plt
 
 
-# In[3]:
+# In[78]:
 
 from matplotlib import pyplot
 
@@ -61,46 +61,46 @@ pyplot.show()
 
 # Funcion Lineal Mixta $$f(x) = 
 # \begin{cases} 
-# -1 & \mbox{si } x<-1 \\ x &\mbox{si } x<=0 <=1\\ -1 & \mbox{si } x < -1 
+# 0 & \mbox{si } x<0 \\ x &\mbox{si } x<=0 <=1\\ 1 & \mbox{si } x > 1 
 # \end{cases} 
 # $$
 
-# In[625]:
+# In[12]:
 
 Hv = lambda x: np.piecewise(x, [x <0, x==0,x==1, x > 1.0], [0,lambda x:x,lambda x:x,1.0])
 
 
-# In[626]:
+# In[13]:
 
 x = np.linspace(-2, 2, 5)
 
 
-# In[627]:
+# In[14]:
 
 plt.axis([x[0], x[-1], -1, 1.3])
 
 
-# In[628]:
+# In[15]:
 
 plt.plot(x, Hv(x),'-b' )
 
 
-# In[629]:
+# In[16]:
 
 plt.xlabel('x'), plt.ylabel('f(x)')
 
 
-# In[630]:
+# In[17]:
 
 plt.legend(['Satlin'])
 
 
-# In[631]:
+# In[18]:
 
 plt.title('Funcion Lineal Mixta')
 
 
-# In[632]:
+# In[19]:
 
 plt.show()
 
@@ -111,76 +111,76 @@ plt.show()
 # \end{cases} 
 # $$
 
-# In[331]:
+# In[218]:
 
 Hv = lambda x: np.piecewise(x, [x < 0.0, x >= 0.0], [0.0, 1.0])
 
 
-# In[332]:
+# In[219]:
 
 x = np.linspace(-2, 2, 100)
 
 
-# In[333]:
+# In[220]:
 
 plt.axis([x[0], x[-1], -1, 1.5])
 
 
-# In[334]:
+# In[221]:
 
 plt.plot(x, Hv(x),'-b' )
 
 
-# In[335]:
+# In[222]:
 
 plt.xlabel('x'), plt.ylabel('f(x)')
 
 
-# In[336]:
+# In[223]:
 
 plt.legend(['Hardlim'])
 
 
-# In[337]:
+# In[224]:
 
 plt.title('Funcion Escalon')
 
 
-# In[338]:
+# In[225]:
 
 plt.show()
 
 
 # Función Tangente Hiperbólica $$f(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$
 
-# In[985]:
+# In[230]:
 
 def f(x):
       return (np.exp(x)-np.exp(-x))/ (np.exp(x)+np.exp(-x))  
       
 
 
-# In[986]:
+# In[231]:
 
 x = np.linspace(-10,10, num=1000)
 
 
-# In[987]:
+# In[232]:
 
 plt.title("Funcion Tangente Hiperbolica")
 
 
-# In[988]:
+# In[233]:
 
 pyplot.xlim(-10,10)
 
 
-# In[989]:
+# In[234]:
 
 pyplot.ylim(-1.2,1.5)
 
 
-# In[990]:
+# In[235]:
 
 plt.plot(x,f(x))
 plt.xlabel("X")
@@ -188,41 +188,41 @@ plt.ylabel("f(x)")
 plt.legend(['Tansig'])
 
 
-# In[991]:
+# In[236]:
 
 plt.show()
 
 
 # Función Sigmoidal $$f(x)=\frac{1}{1+e^{-x}}$$
 
-# In[994]:
+# In[35]:
 
 def f(x):
       return 1/ (1+np.exp(-x))  
       
 
 
-# In[995]:
+# In[36]:
 
 x = np.linspace(-10,10, num=1000)
 
 
-# In[996]:
+# In[37]:
 
 plt.title("Funcion Sigmoidal")
 
 
-# In[997]:
+# In[38]:
 
 pyplot.xlim(-10,10)
 
 
-# In[998]:
+# In[39]:
 
 pyplot.ylim(-1.2,1.5)
 
 
-# In[999]:
+# In[40]:
 
 plt.plot(x,f(x))
 plt.xlabel("X")
@@ -230,14 +230,36 @@ plt.ylabel("f(x)")
 plt.legend(['Logsig'])
 
 
-# In[1069]:
+# In[41]:
 
 plt.show()
 
 
-# In[ ]:
+# Funcion Gaussiana  
+
+# In[305]:
+
+sigma= 0.01
+x=np.linspace(-5,5, num=1000)
 
 
+# In[306]:
+
+def f(x):
+            return 1/(sigma *np.sqrt(2 * np.pi)) *(np.exp(-x**2) / (2 * sigma**2))   
+
+
+# In[307]:
+
+plt.plot(x,f(x))
+plt.xlabel("X")
+plt.ylabel("f(x)")
+
+
+# In[308]:
+
+plt.grid()
+plt.show()
 
 
 # In[ ]:
